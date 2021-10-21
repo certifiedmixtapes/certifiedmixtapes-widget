@@ -1,0 +1,74 @@
+<mat-toolbar  style="background:black;" class="mat-elevation-z3 music-control" >
+    <mat-toolbar-row style="height:100%;" id="audio-player">
+    <a href="https://www.certifiedmixtapez.com/album/{{id}}">
+    <img
+      *ngIf="
+      selectedAlbum?.coverImageName && (selectedAlbum?.coverImageName.endsWith('jpg') || selectedAlbum?.coverImageName.endsWith('png'))
+      "
+      routerLink="/album/{{id}}"
+      width="150"
+      length="150"
+      src="{{selectedAlbum.coverImageName }}"
+    /></a>
+  <div id="title" class="col-md-6 col-xs-6 row">
+    <a mat-card-subtitle
+      *ngIf="selectedAlbum"
+      href="https://www.certifiedmixtapez.com/search/{{selectedAlbum.artists}}"
+      style="width: 100px; color: white">{{ selectedAlbum.artists }}</a>
+
+    <div *ngIf="trackTitle" style="width: 100px; color: white">
+      <div>
+        {{ trackTitle }}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6" style="display: flex;align-items: right; justify-content: center;" routerLink="/">
+    <span>
+    <img src="assets/cmtz.ico" style="    padding-right:5px; margin-right:0px; vertical-align: middle;" width="38px" height="38px" />
+      <span style="font-family: Lobster; color: white" class="header-text">CertifiedMixtapes</span><span style="font-family: Lobster;" class="header-text"></span></span>
+  </div>
+
+</mat-toolbar-row>
+<mat-toolbar-row>
+  <button
+    style="height:60px"
+    (click)="play()"
+    *ngIf="!isPlaying"
+    mat-icon-button
+  >
+    <!--mat-icon style="color: white;" mat-list-icon>play_circle_outline</mat-icon-->
+    <i style="vertical-align: middle; color: white; padding-right: 25px; padding-bottom: 40px; margin-left: 25px; font-size: 48px;" class="fa fa-play-circle"></i>
+  </button>
+
+  <button
+    style="height:60px"
+    (click)="pause()"
+    *ngIf="isPlaying"
+    [disableRipple]="true"
+    mat-icon-button
+  >
+    <!--mat-icon mat-list-icon>pause_rounded</mat-icon-->
+    <i style="vertical-align: middle; color: white; padding-right: 25px; padding-bottom: 40px; margin-left: 25px; font-size: 48px;" class="fa fa-pause-circle"></i>
+  </button>
+
+  <div style="padding-bottom: 40px;width: 90%;padding-left: 48px;">
+    <div id="waveform"></div>
+  </div>
+  <span class="u-pos-relative">
+  </span>
+</mat-toolbar-row>
+</mat-toolbar>
+<table *ngIf="selectedAlbum?.trackCount > 1" mat-table style="width: 100%;" [dataSource]="tracks" class="mat-elevation-z8">
+  <ng-container matColumnDef="Number">
+    <th mat-header-cell *matHeaderCellDef style="width:60px"> # </th>
+    <td mat-cell *matCellDef="let element"> {{element.order}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.trackTitle}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="track-row" (click)="playTrack(row)"></tr>
+</table>
