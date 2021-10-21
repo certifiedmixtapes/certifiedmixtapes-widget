@@ -1,0 +1,127 @@
+button:focus, button:active:focus, button.active:focus {
+    outline: none !important;
+    outline-style: none !important;
+}
+
+.u-pos-relative {
+  position: relative;
+}
+
+
+.player-queue-menu__header {
+  padding: 5px 5px 15px;
+}
+
+.u-left-right {
+  display: flex;
+  justify-content: space-between;
+}
+.u-d-flex--align-center {
+  align-items: center;
+}
+
+.u-d-flex {
+  display: flex;
+}
+
+.tracklist__track--queue:last-child .tracklist__track-details {
+  border-bottom: 0;
+}
+.tracklist__track--dark .tracklist__track-details {
+  border-top: 1px solid #222;
+}
+.tracklist__track-details {
+  font-weight: 600;
+  height: 52px;
+  border-top: 1px solid #ededed;
+}
+.u-fs-13 {
+  font-size: .8125rem;
+}
+.u-d-flex--align-center {
+  align-items: center;
+}
+.u-d-flex {
+  display: flex;
+}
+.u-pos-relative {
+  position: relative;
+}
+
+
+
+.button {
+  border: 0;
+  background: #3b97f9;
+  display: inline-block;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 18px;
+  line-height: 1;
+  position: relative;
+  cursor: pointer;
+  transition: background-color .2s ease-in-out,color .2s ease-in-out;
+}
+
+#audio-player {
+    width: 100%;
+    padding: 2.5rem;
+    //justify-content: center;
+    .mat-icon {
+      height: 48px !important;
+      width: 48px !important;
+      font-size: 32px !important;
+      color: white;
+    }
+    img {
+        padding-right: 5px;
+        margin-right: 15px;
+
+    }
+    #title {
+        width: 90%;
+        margin-right: 10px;
+        margin-bottom: 0px;
+        color: white !important;
+        #trackTitle { 
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+}
+
+  /* Below doesn't work to pause */
+
+  @media (min-width: 768px) {
+    .header-text {
+      display: inline;
+    }
+  }
+  @media (max-width: 768px) {
+    .header-text {
+      display: hidden;
+    }
+  }
+
+  table {
+    width: 100%;
+  }
+  th {
+    text-transform: uppercase;
+    color: #333;
+    font-weight: bold;
+  }
+  td {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .track-row {
+    cursor: pointer;
+    outline: none;
+    border-collapse: separate;
+    overflow: hidden;
+  }
+
+  .track-row:hover {
+    background: #f5f5f5;
+  }
+
