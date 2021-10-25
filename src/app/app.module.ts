@@ -11,13 +11,16 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { HomeComponent } from './home/home.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,7 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatListModule,
     MatTableModule,
+    MarkdownModule.forRoot(),
     AppRoutingModule
   ],
   providers: [],
