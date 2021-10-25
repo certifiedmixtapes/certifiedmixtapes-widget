@@ -92,7 +92,7 @@ export class AudioPlayerComponent implements OnInit {
         barHeight: 0.5,
         minPxPerSec: 25,
         maxCanvasWidth: 2000,
-        height: 100,
+        height: 70,
         backend: 'MediaElement',
         fillParent: true,
         barGap: 2.5,

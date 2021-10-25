@@ -6,8 +6,8 @@
       selectedAlbum?.coverImageName && (selectedAlbum?.coverImageName.endsWith('jpg') || selectedAlbum?.coverImageName.endsWith('png'))
       "
       routerLink="/album/{{id}}"
-      width="150"
-      length="150"
+      width="125"
+      length="125"
       src="{{selectedAlbum.coverImageName }}"
     /></a>
   <div id="title" class="col-md-6 col-xs-6 row">
@@ -58,7 +58,8 @@
   </span>
 </mat-toolbar-row>
 </mat-toolbar>
-<table *ngIf="selectedAlbum?.trackCount > 1" mat-table style="width: 100%;" [dataSource]="tracks" class="mat-elevation-z8">
+<div style="height:233px; overflow:auto;">
+<table *ngIf="selectedAlbum?.trackCount > 1" mat-table style="width: 100%; overflow-y: scroll;" [dataSource]="tracks" class="mat-elevation-z8">
   <ng-container matColumnDef="Number">
     <th mat-header-cell *matHeaderCellDef style="width:60px"> # </th>
     <td mat-cell *matCellDef="let element"> {{element.order}} </td>
@@ -72,3 +73,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="track-row" (click)="playTrack(row)"></tr>
 </table>
+</div>
