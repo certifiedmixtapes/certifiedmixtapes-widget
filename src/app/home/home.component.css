@@ -1,0 +1,23 @@
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(31, 30, 30, 0.995);
+    color: #3b97f9;
+    font-weight: 600;
+  }
+
+  @media (min-width: 768px) {
+    .header-text {
+      display: inline;
+    }
+  }
+  @media (max-width: 768px) {
+    .header-text {
+      display: hidden;
+    }
+  }
