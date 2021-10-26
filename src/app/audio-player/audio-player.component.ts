@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute } from '@angular/router';
 import { PlayerService } from '../shared/player.service';
+import { Identifiers } from '@angular/compiler';
 
 // @ts-ignore: Javascript
 declare var WaveSurfer;
@@ -16,6 +17,7 @@ declare var WaveSurfer;
 export class AudioPlayerComponent implements OnInit {
   selectedAlbum: any;
   tracks: Array<any> = [];
+  single: any;
   id: string;
   trackTitle: string = "";
   isPlaying = false;
@@ -25,12 +27,14 @@ export class AudioPlayerComponent implements OnInit {
   shouldPlay = false;
   currentTrack: any = "";
   coverImage: string = "";
+  type: string;
 
 
 
 
   constructor(private http: HttpClient,private route: ActivatedRoute, private playerSer: PlayerService, private cdr: ChangeDetectorRef) { 
     this.id = this.route.snapshot.params['id'];
+    this.type = this.route.snapshot.params['type'];
     
     playerSer.playTrack$.subscribe(order => {
        this.trackIndex = Number(order);
@@ -65,7 +69,12 @@ export class AudioPlayerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getTracks(this.id);
+    if(this.type === "single"){
+      this.getSingle(this.id);
+    }
+    else if(this.type === "album") {
+      this.getTracks(this.id);
+    }
   }
 
 
@@ -76,6 +85,22 @@ export class AudioPlayerComponent implements OnInit {
         this.selectedAlbum.trackCount = response.responseObject.length;
         this.tracks = response.responseObject;
         this.trackTitle = this.tracks[0].trackTitle;
+        this.playerSer.queueTracks(this.tracks);
+        var order = Number(0);
+        this.playerSer.playTrack(order.toString());    
+      });
+  }
+
+  getSingle(id: string){
+    this.http.get<any>(environment.apiUrl +'/api/tracks/'+this.id + '?accessKey=4a4897e2-2bae-411f-9c85-d59789afc758').subscribe(
+      response => {
+        console.log(response);
+        this.selectedAlbum = response.responseObject.album;
+        this.selectedAlbum.trackCount = response.responseObject.length;
+        this.single = response.responseObject;
+        this.tracks.push(this.single);
+        console.log(this.tracks);
+        this.trackTitle = this.single.trackTitle;
         this.playerSer.queueTracks(this.tracks);
         var order = Number(0);
         this.playerSer.playTrack(order.toString());    
