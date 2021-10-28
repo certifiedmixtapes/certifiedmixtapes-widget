@@ -1,0 +1,30 @@
+#audio-player {
+    width: 100%;
+    padding-top: 1.0rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    //justify-content: center;
+    .mat-icon {
+      height: 48px !important;
+      width: 48px !important;
+      font-size: 32px !important;
+      color: white;
+    }
+    img {
+        padding-right: 5px;
+        margin-right: 15px;
+
+    }
+    #title {
+        width: 90%;
+        margin-right: 10px;
+        margin-bottom: 0px;
+        color: white !important;
+        #trackTitle { 
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+}

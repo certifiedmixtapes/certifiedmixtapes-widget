@@ -21,3 +21,9 @@
       display: hidden;
     }
   }
+
+  .mat-elevation-z3 {
+    position: fixed;
+    z-index: 2;
+    background: #fff;
+  }

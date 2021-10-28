@@ -1,0 +1,55 @@
+<div style="padding-top:20px; margin-left:10%;width:80%">
+<mat-toolbar  style="margin-bottom: 30px;" class="mat-elevation-z3 music-control" *ngFor="let single of singleArray; let indexOfelement=index; let $last = last" [isLast]='$last' (ngInit)="loadAllTracks()" >
+    <mat-toolbar-row style="height:100%;" id="audio-player">
+    <a href="https://www.certifiedmixtapez.com/album/{{single.album.id}}">
+    <img
+      routerLink="/album/{{single.album.id}}"
+      width="125"
+      length="125"
+      src="{{single.album.coverImageName }}"
+    /></a>
+  <div id="title" class="col-md-6 col-xs-6 row">
+    <a mat-card-subtitle
+      *ngIf="single.album"
+      href="https://www.certifiedmixtapez.com/search/{{single.album.artists}}"
+      style="width: 100px; color: black">{{ single.album.artists }}</a>
+
+    <div *ngIf="single.trackTitle" style="width: 100px; color: black">
+      <div>
+        {{ single.trackTitle }}
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-6" style="display: flex;align-items: right; justify-content: center;" routerLink="/">
+  </div>
+
+</mat-toolbar-row>
+<mat-toolbar-row>
+  <button
+    style="height:60px"
+    (click)="play()"
+    *ngIf="!isPlaying"
+    mat-icon-button
+  >
+    <i style="vertical-align: middle; color: #3b97f9; padding-right: 25px; padding-bottom: 40px; margin-left: 25px; font-size: 48px;" class="fa fa-play-circle"></i>
+  </button>
+
+  <button
+    style="height:60px"
+    (click)="pause()"
+    *ngIf="isPlaying"
+    [disableRipple]="true"
+    mat-icon-button
+  >
+    <i style="vertical-align: middle; color: #3b97f9; padding-right: 25px; padding-bottom: 40px; margin-left: 25px; font-size: 48px;" class="fa fa-pause-circle"></i>
+  </button>
+
+  <div style="padding-bottom: 40px;width: 90%;padding-left: 48px;">
+    <div id="waveform{{indexOfelement}}">
+    </div>
+  </div>
+  <span class="u-pos-relative">
+  </span>
+</mat-toolbar-row>
+</mat-toolbar>
+</div>

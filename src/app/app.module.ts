@@ -13,6 +13,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { HomeComponent } from './home/home.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { TopSongsComponent } from './top-songs/top-songs.component';
+import { NgInitDirective } from './shared/nginit.directive';
 
 
 
@@ -20,7 +22,9 @@ import { MarkdownModule } from 'ngx-markdown';
   declarations: [
     AppComponent,
     AudioPlayerComponent,
-    HomeComponent
+    HomeComponent,
+    NgInitDirective,
+    TopSongsComponent
   ],
   imports: [
     BrowserModule,
