@@ -1,0 +1,6 @@
+name = "api-proxy"
+type = "javascript"
+account_id = "63646b37a40a3fdce7d248c2648d0941"
+workers_dev = true
+route = ""
+zone_id = ""

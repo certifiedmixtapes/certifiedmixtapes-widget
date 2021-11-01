@@ -24,6 +24,9 @@
 
   .mat-elevation-z3 {
     position: fixed;
-    z-index: 2;
+    left:0;
+    top:0;
+    width:100%;  
+    z-index: 1;
     background: #fff;
   }

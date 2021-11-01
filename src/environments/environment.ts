@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://dev.certifiedmixtapez.com"
+  apiUrl: "https://api-proxy.certifiedmixtapes.workers.dev"
 };
 
 /*

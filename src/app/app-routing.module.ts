@@ -4,11 +4,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 import { HomeComponent } from './home/home.component';
 import { TopSongsComponent } from './top-songs/top-songs.component';
+import { WrapperComponent } from './wrapper/wrapper.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  {
+    path: '',
+    component: WrapperComponent,
+    children: [{ path: '', component: HomeComponent }],
+  },
   { path: ':type/:id', component: AudioPlayerComponent },
-  { path: 'songs', component: TopSongsComponent },
+  //{ path: 'songs', component: TopSongsComponent },
+  {
+    path: '',
+    component: WrapperComponent,
+    children: [{ path: 'songs', component: TopSongsComponent }],
+  },
 
 ];
 
