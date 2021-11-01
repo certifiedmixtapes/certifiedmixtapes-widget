@@ -27,8 +27,8 @@
 <mat-toolbar-row>
   <button
     style="height:60px"
-    (click)="play()"
-    *ngIf="!isPlaying"
+    (click)="play(indexOfelement)"
+    *ngIf="!isPlaying[indexOfelement]"
     mat-icon-button
   >
     <i style="vertical-align: middle; color: #3b97f9; padding-right: 25px; padding-bottom: 40px; margin-left: 25px; font-size: 48px;" class="fa fa-play-circle"></i>
@@ -36,8 +36,8 @@
 
   <button
     style="height:60px"
-    (click)="pause()"
-    *ngIf="isPlaying"
+    (click)="pause(indexOfelement)"
+    *ngIf="isPlaying[indexOfelement]"
     [disableRipple]="true"
     mat-icon-button
   >

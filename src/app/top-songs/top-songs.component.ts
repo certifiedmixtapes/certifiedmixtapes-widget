@@ -12,9 +12,10 @@ declare var WaveSurfer;
 })
 export class TopSongsComponent implements OnInit {
   singleArray: Array<any> = [];
-  isPlaying = false;
+  //isPlaying = false;
   wave: Array<any> = [];
   shouldPlay = false;
+  isPlaying: Array<boolean> = []
 
 
 
@@ -31,11 +32,15 @@ export class TopSongsComponent implements OnInit {
     );
   }
 
-  pause(){
-
+  pause(id: number){
+    this.wave[id].pause();
+    this.isPlaying[id] = false;
   }
 
-  play(){}
+  play(id: number){
+    this.wave[id].play();
+    this.isPlaying[id] = true;
+  }
 
   generateWaveform(id: number): void {
     var idString = id.toString();
@@ -57,16 +62,14 @@ export class TopSongsComponent implements OnInit {
       });
 
       this.wave[id].on('ready', () => {
-        //this.unmuteService.unmute(this.wave.backend.getAudioContext())
         if(this.shouldPlay){
           this.wave[id].play();
-          this.isPlaying = true;
+          this.isPlaying[id] = true;
         }
       });
 
       this.wave[id].on('finish', () => {
-        //this.next();
-        this.isPlaying = true;
+        this.isPlaying[id] = true;
       });
     });
   }
@@ -83,7 +86,11 @@ export class TopSongsComponent implements OnInit {
   loadAllTracks(){
     for(let s = 0; s < this.singleArray.length; s++){
       var trackUrl = this.singleArray[s].trackURL;
+      if (environment.production) {
+        trackUrl = trackUrl.replace("http:","https:");
+      }
       this.loadTrack(trackUrl, s);
+      this.isPlaying[s] = false;
     }
   }
 

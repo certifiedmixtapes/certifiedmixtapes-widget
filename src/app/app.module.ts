@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { TopSongsComponent } from './top-songs/top-songs.component';
 import { NgInitDirective } from './shared/nginit.directive';
+import { WrapperComponent } from './wrapper/wrapper.component';
 
 
 
@@ -24,6 +25,7 @@ import { NgInitDirective } from './shared/nginit.directive';
     AudioPlayerComponent,
     HomeComponent,
     NgInitDirective,
+    WrapperComponent,
     TopSongsComponent
   ],
   imports: [

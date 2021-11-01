@@ -23,10 +23,12 @@ Embeddable Widget for Certified Mixtapes. Here is a link to the [Homepage](https
 
 ## Libraries
 
-[wave.js]()<br>
-[Angular 12]()<br>
-[ngx-markdown]()
+[wavesurfer js](https://wavesurfer-js.org/)<br>
+[Angular 12](https://angular.io/)<br>
+[ngx-markdown](https://www.npmjs.com/package/ngx-markdown)
 
-Hosted in [Cloudflare Pages]()
+Hosted in [Cloudflare Pages](https://pages.cloudflare.com/)
+API Proxy [Cloudflare Workers](https://workers.cloudflare.com/)
 
-#Hacktoberfest
+[#Hacktoberfest](https://hacktoberfest.digitalocean.com/)
+[#DeveloperChallenge](https://twitter.com/hashtag/developerchallenge)
